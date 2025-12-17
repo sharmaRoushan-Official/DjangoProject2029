@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from EMS.models import Employee
+from EMS.models import Employee,Customer
 
 # Create your views here.
 
@@ -100,6 +100,35 @@ def view_insert_ems(request):
         emp.save()
         resp = HttpResponse("<h1>Employee Inserted Successfully!! Done</h1>")
         return resp
+    
+
+
+def viewCustomer(request):
+    cus = Customer()
+    if request.method == "GET":
+        resp = render(request,'EMS/customer.html')
+        return resp
+    elif 'btnAdd' in request.POST:
+        
+        cus.name = request.POST.get("txtName","NA")
+        # print("----------------------",name)
+        cus.age = int(request.POST.get("txtAge",0))
+        cus.address = request.POST.get('txtAdd',"NA")
+        cus.mobileNo = request.POST.get('txtMob',"NA")
+        cus.salary = float(request.POST.get('txtSal',0))
+        cus.save()
+        resp = render(request,"EMS/customerDataAddedSuccess.html")
+        return resp
+    elif 'btnUpdate' in request.POST:
+        cus_id = int(request.POST.get('txtID',0))
+        # print("-------------------",cus_id)
+        customer_id=Customer.objects.get(id=cus_id)
+        # print("---------------CUS ID--------------",customer_id)
+        d1 = {'customer':customer_id}
+        resp = render(request,"EMS/customer.html",context=d1)
+        return resp
+
+
 
 
 
