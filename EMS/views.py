@@ -98,7 +98,7 @@ def view_insert_ems(request):
         emp.mobileno = request.POST.get("txtMobileno","NA")
         emp.address = request.POST.get("txtAddress","NA")
         emp.save()
-        resp = HttpResponse("<h1>Employee Inserted Successfully!!</h1>")
+        resp = HttpResponse("<h1>Employee Inserted Successfully!! Done</h1>")
         return resp
 
 
