@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    
+    <h1>This is my first Calculator in Apps</h1>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Enter First Number: </th>
+                <th><input type="text" name="t1" value="{{a}}"></th>
+            </tr>
+            <tr>
+                <th>Enter Second Number:</th>
+                <th><input type="text" name="t2" value="{{b}}"></th>
+            </tr>
+            <tr>
+                <th>Result:</th>
+                <th><input type="text" name="t3" value="{{c}}"></th>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" name="btnSum">Calculate</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

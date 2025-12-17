@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <!-- {{a}} 100-->
+    <h1>Welcome to My Home Page</h1>
+    <hr>
+    <h1>Q1.Wap to check number is equal to 100 or not.</h1>
+    <hr>
+    {% if a == 100 %}
+    <h1>{{a}} is equal to 100.</h1>
+    {% else %}
+    <h1>{{a}} is not equal to 100.</h1>
+    {% endif %}
+
+    <hr />
+    <!-- {{x}}||{{y}} -->
+    <h1>Q2.Write a program to check smallest of two numbers.</h1>
+    {% if x <= y %} 
+    <h1>{{x}} is smaller than {{y}}</h1>
+    {% else %}
+    <h1>{{y}} is smaller than {{x}}</h1>
+    {% endif %}
+    <hr>
+
+    <!-- {% if condition %}
+    <h1>statement</h1>
+    {% elif condition %}
+    <h1>statement</h1>
+    {% else %}
+    <h1>statement</h1>
+    {% endif %} -->
+
+
+    <h1>Q3.Write a program to check charactaer is vowel or consonent.</h1>
+    <hr>
+    <h1>Q4.Write a to find the greatest in three numbers.</h1>
+    <hr>
+    <h1>Q5.Write a program to find the number positive or negative.</h1>
+    <hr>
+    <h1>Q6. Wap to find the number is absolute or not.</h1>
+    <hr>
+    <h1>Q7.Wap to check weather a numebr is 0 or not.</h1>
+    <hr>
+    <h1>Q8.Wap to check weather a character is vowel or consonent.</h1>
+    <hr>
+    <h1>Q9. Wap to check person is elegible for voting or not.</h1>
+    <hr>
+    <h1>Q10.Wap to check person age|toddler|kids|teen|teenager|adult|senior citizen</h1>
+    <table aria-describedby="age-description">
+        <caption id="age-description" style="text-align:left;font-weight:600;margin-bottom:8px">Category — Age range
+        </caption>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Age Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="tag">Toddler</span></td>
+                <td>1 – 3 years</td>
+            </tr>
+            <tr>
+                <td><span class="tag">Kids / Child</span></td>
+                <td>4 – 12 years</td>
+            </tr>
+            <tr>
+                <td><span class="tag">Teen / Teenager</span></td>
+                <td>13 – 19 years</td>
+            </tr>
+            <tr>
+                <td><span class="tag">Adult</span></td>
+                <td>20 – 59 years</td>
+            </tr>
+            <tr>
+                <td><span class="tag">Senior Citizen</span></td>
+                <td>60+ years</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

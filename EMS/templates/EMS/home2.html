@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTL in For LOOP</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h1>DTL in For LOOP</h1>
+        <hr>
+        <h2>Q.write a progam to print value from 1-10</h2>
+        <br>
+        {% for i,j in table %}
+        <h1>{{b}}X{{i}}={{j}}</h1>
+        {% endfor %}
+        <hr>
+        <h2>Q.wap to show 10 dummpy employee records.</h2>
+        <br>
+        <!-- {{employee}} -->
+        <div>
+            <label for="">Enter any value: </label>
+            <input type="text" name="txtNo">
+            <button type="submit">Submit</button>
+        </div>
+        <br>
+        <hr>
+
+
+        <table border="2px solid black">
+            <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>ADDRESS</th>
+                <th>MOBILENO</th>
+                <th>POST</th>
+                <th>SALARY</th>
+            </tr>
+            {% for emp in employee %}
+            <tr>
+                <td>{{emp.name}}</td>
+                <td>{{emp.age}}</td>
+                <td>{{emp.mobileno}}</td>
+                <td>{{emp.post}}</td>
+                <td>{{emp.salary}}</td>
+                <td>{{emp.salary}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+</body>
+
+</html>

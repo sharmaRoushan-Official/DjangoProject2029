@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        body {
+            background-color: rgb(170, 214, 235);
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+        }
+
+        button {
+            height: 60px;
+            width: 110px;
+            font-size: 20px;
+        }
+
+        td {
+            height: 60px;
+            width: 110px;
+            font-size: 20px;
+        }
+
+        input {
+            height: 50px;
+            width: 200px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>***This is my first calculator page***</h1>
+    <hr>
+    <!-- <h1>{{sum1}}</h1> -->
+    <form method="get">
+        <table border="2px solid black" align="center">
+            <tr>
+                <td>Enter First Number: </td>
+                <td><input type="text" name="t1" value="{{a}}"></td>
+            </tr>
+            <tr>
+                <td>Enter Second Number:</td>
+                <td><input type="text" name="t2" value="{{b}}"></td>
+            </tr>
+            <tr>
+                <td>Result:</td>
+                <td><input type="text" name="t3" value="{{sum1}}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><button>SUM</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
