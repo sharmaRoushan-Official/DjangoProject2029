@@ -119,7 +119,7 @@ def viewCustomer(request):
         cus.save()
         resp = render(request,"EMS/customerDataAddedSuccess.html")
         return resp
-    elif 'btnUpdate' in request.POST:
+    elif 'btnSearch' in request.POST:
         cus_id = int(request.POST.get('txtID',0))
         # print("-------------------",cus_id)
         customer_id=Customer.objects.get(id=cus_id)
@@ -127,6 +127,28 @@ def viewCustomer(request):
         d1 = {'customer':customer_id}
         resp = render(request,"EMS/customer.html",context=d1)
         return resp
+    elif 'btnUpdate' in request.POST:
+        cus1 = Customer()
+        cus1.id = int(request.POST.get("txtID",0)) # 1
+        if Customer.objects.filter(id=cus1.id).exists():
+            cus1.name = request.POST.get('txtName',"NA")
+            cus1.age = int(request.POST.get("txtAge",0))
+            cus1.address = request.POST.get('txtAdd','NA')
+            cus1.mobileNo = request.POST.get("txtMob","NA")
+            cus1.salary = float(request.POST.get("txtSal",0))
+            cus1.save()
+            resp = HttpResponse("<h1>Customer Data Updated Successfully!!</h1>")
+            return resp
+    elif 'btnDelete' in request.POST:
+        cus2 = Customer()
+        cus2.id = int(request.POST.get("txtID",0)) # 1
+        if Customer.objects.filter(id=cus2.id).exists():
+            # Customer.objects.delete(id)
+            Customer.objects.get(id=cus2.id).delete()
+            resp = HttpResponse("<h1>Customer Deleted Succussfully!!<h1>")
+            return resp
+
+
 
 
 
