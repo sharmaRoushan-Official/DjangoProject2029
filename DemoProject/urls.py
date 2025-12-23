@@ -82,5 +82,6 @@ urlpatterns = [
     path('home/',viewHome),  # http://127.0.0.1:8000/home/
     path("calc/",viewCalc),
     path('EMS/',include("EMS.urls")), # http://127.0.0.1:8000/EMS/
+    path("SMS/",include("SMS.urls")), #http://127.0.0.1:8000/SMS/
     
 ]

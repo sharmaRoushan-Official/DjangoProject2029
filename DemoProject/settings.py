@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "EMS", # this is your app name here you registered.
+    "SMS", # this is your app name here which you created.SMS
 ]
 
 MIDDLEWARE = [
