@@ -39,6 +39,9 @@ class PaymentDetails(models.Model):
 
     student = models.ForeignKey(Student, null=False,blank=False, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.amount}"
+
 
     
 
