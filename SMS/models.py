@@ -8,7 +8,7 @@ class Student(models.Model):
     age = models.IntegerField()  # null=True,blank=True
     mobileNo = models.CharField(max_length=12) # null=True,blank=True
     dob = models.DateField(null=True,blank=True)
-    pic = models.ImageField(null=True,blank=True)
+    pic = models.ImageField(upload_to="students/" ,null=True,blank=True)
     created_date = models.DateField(auto_now_add=True)
     last_modified_date = models.DateTimeField(auto_now=True)
 
