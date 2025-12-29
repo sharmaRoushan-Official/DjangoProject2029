@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Course payment:</h1>
+
+    <label for="">Enter Amount</label>
+    <input type="text">
+
+    <label for="">Select Payment Mode:</label>
+    
+    <select name="" id="">
+        {% for i in payment %}
+        <option value="">Select Payment</option>
+        <option value="{{i.id}}">{{i.payment_mode}}</option>
+        {% endfor %}
+    </select>
+
+
+    <select name="" id="">
+        {% for stu in students %}
+        <option value="">Select Name</option>
+        <option value="{{stu.id}}">{{stu.name}}</option>
+        {% endfor %}
+    </select>
+
+    <select name="" id="">
+        {% for c in course %}
+        <option value="">Select Course</option>
+        <option value="{{c.id}}">{{c.name}}</option>
+        {% endfor %}
+    </select>
+
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+
+    
+</body>
+</html>

@@ -5,34 +5,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Registration</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 30px 35px;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #4e73df;
+            box-shadow: 0 0 5px rgba(78, 115, 223, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
 <body>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <h2>Student Registration</h2>
+
         <div>
-            <label for="">Name:</label>
+            <label>Name:</label>
             <input type="text" name="name">
         </div>
 
         <div>
-            <label for="">Age:</label>
+            <label>Age:</label>
             <input type="text" name="age">
         </div>
 
         <div>
-            <label for="">Mobile No: </label>
+            <label>Mobile No:</label>
             <input type="text" name="mobileNo">
         </div>
+
         <div>
-            <label for="">DOB:</label>
+            <label>DOB:</label>
             <input type="date" name="dob">
         </div>
+
         <div>
-            <label for="">Upload Photo:</label>
+            <label>Upload Photo:</label>
             <input type="file" name="pic">
         </div>
+
         <div>
             <button type="submit">Submit</button>
         </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Student
+from SMS.models import *
 from django.http import HttpResponse
 
 # Create your views here.
@@ -23,5 +23,17 @@ def view_student_registration(request):
         return HttpResponse("<h1>Data Inserted Successfully!!</h1>")
     
     return render(request,"SMS/studentReg.html")
+
+
+def viewPayment(request):
+
+    pay = PaymentDetails.objects.all()
+    stu = Student.objects.all()
+    cou = Course.objects.all()
+    d1 = {'payment':pay,'students':stu,'course':cou}
+    if request.method == "POST":
+
+        pass
+    return render(request,"SMS/createPayment.html",context=d1)
     
 
