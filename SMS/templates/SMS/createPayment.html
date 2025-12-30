@@ -1,45 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Payment</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(120deg, #1d2671, #c33764);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+/* ===== MAIN WRAPPER ===== */
+.page-wrapper {
+    width: 100%;
+    max-width: 700px;
+    padding: 50px 25px;
+}
+
+/* ===== TITLE ===== */
+h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    animation: fadeDown 1s ease;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== FORM ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* ===== INPUT GROUP ===== */
+.field label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    opacity: 0.9;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+}
+
+.field input::placeholder {
+    color: #ddd;
+}
+
+.field select option {
+    color: #000;
+}
+
+/* focus glow */
+.field input:focus,
+.field select:focus {
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.7);
+}
+
+/* ===== BUTTON ===== */
+button {
+    margin-top: 10px;
+    padding: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(135deg, #00f260, #0575e6);
+    transition: 0.4s ease;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== FOOT NOTE ===== */
+.note {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <h1>Course payment:</h1>
 
-    <label for="">Enter Amount</label>
-    <input type="text">
+<div class="page-wrapper">
+    <h1>Course Payment</h1>
 
-    <label for="">Select Payment Mode:</label>
-    
-    <select name="" id="">
-        {% for i in payment %}
-        <option value="">Select Payment</option>
-        <option value="{{i.id}}">{{i.payment_mode}}</option>
-        {% endfor %}
-    </select>
+    <form method="post">
+        {% csrf_token %}
 
+        <div class="field">
+            <label>Enter Amount</label>
+            <input type="number" name="amount" placeholder="Enter amount" required>
+        </div>
 
-    <select name="" id="">
-        {% for stu in students %}
-        <option value="">Select Name</option>
-        <option value="{{stu.id}}">{{stu.name}}</option>
-        {% endfor %}
-    </select>
+        <div class="field">
+            <label>Select Payment Mode</label>
+            <select name="payment_mode" required>
+                <option value="">-- Select Payment Mode --</option>
+                <option value="cash">Cash</option>
+                <option value="debit card">Debit Card</option>
+                <option value="credit card">Credit Card</option>
+                <option value="paytm">PayTM</option>
+            </select>
+        </div>
 
-    <select name="" id="">
-        {% for c in course %}
-        <option value="">Select Course</option>
-        <option value="{{c.id}}">{{c.name}}</option>
-        {% endfor %}
-    </select>
+        <div class="field">
+            <label>Select Student</label>
+            <select name="student" required>
+                <option value="">-- Select Student --</option>
+                {% for stu in students %}
+                    <option value="{{ stu.id }}">{{ stu.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-    <div>
-        <button type="submit">Submit</button>
+        <div class="field">
+            <label>Select Course</label>
+            <select name="course">
+                <option value="">-- Select Course --</option>
+                {% for c in courses %}
+                    <option value="{{ c.id }}">{{ c.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit">Submit Payment</button>
+    </form>
+
+    <div class="note">
+        🔒 Your payment details are safe & secure
     </div>
+</div>
 
-
-    
 </body>
 </html>

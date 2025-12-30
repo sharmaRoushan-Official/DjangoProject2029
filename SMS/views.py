@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from SMS.models import *
 from django.http import HttpResponse
 
@@ -26,14 +26,27 @@ def view_student_registration(request):
 
 
 def viewPayment(request):
+    students = Student.objects.all()
+    courses = Course.objects.all()
 
-    pay = PaymentDetails.objects.all()
-    stu = Student.objects.all()
-    cou = Course.objects.all()
-    d1 = {'payment':pay,'students':stu,'course':cou}
     if request.method == "POST":
+        amount = request.POST.get("amount")
+        payment_mode = request.POST.get("payment_mode")
+        student_id = request.POST.get("student")
 
-        pass
-    return render(request,"SMS/createPayment.html",context=d1)
+        PaymentDetails.objects.create(
+            amount=amount,
+            payment_mode=payment_mode,
+            student_id=student_id
+        )
+
+        return render(request,"SMS/paymentSuccess.html")  
+    
+
+    context = {
+        'students': students,
+        'courses': courses
+    }
+    return render(request, "SMS/createPayment.html", context)
     
 
