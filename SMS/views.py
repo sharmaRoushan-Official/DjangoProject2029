@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from SMS.models import *
 from django.http import HttpResponse
+from SMS.forms import StudentForm
 
 # Create your views here.
 
@@ -50,3 +51,24 @@ def viewPayment(request):
     return render(request, "SMS/createPayment.html", context)
     
 
+
+def view_student_frm(request):
+    if request.method == "GET":
+        frm_unbound = StudentForm() # unbound  = no data
+        context = {
+            'frm': frm_unbound
+        }
+        return render(request, "SMS/studentForm.html", context)
+    elif request.method == "POST":
+        # frm_bound = StudentForm(request.POST) # bound form = with data
+        frm_bound = StudentForm(request.POST, request.FILES) # bound form = with data
+        if frm_bound.is_valid():
+            frm_bound.save()
+            resp = HttpResponse("<h1>Student Data Saved Successfully!!</h1>")
+            return resp
+    else:
+        context = {
+            'frm': frm_bound   
+        }
+        return render(request, "SMS/studentForm.html", context)
+    

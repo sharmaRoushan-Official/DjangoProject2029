@@ -5,4 +5,5 @@ from SMS.views import *
 urlpatterns = [
     path('stuReg/',view_student_registration), # http://127.0.0.1:8000/SMS/stuReg/
     path('createPay/',viewPayment,name="viewPayment"),
+    path('stuFrm/',view_student_frm,name="view_student_frm"),
 ]
