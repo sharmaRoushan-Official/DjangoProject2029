@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from SMS.models import *
 from django.http import HttpResponse
-from SMS.forms import StudentForm
+from SMS.forms import StudentForm,CourseStudentForm,PaymentDetailsForm
 
 # Create your views here.
 
@@ -72,3 +72,41 @@ def view_student_frm(request):
         }
         return render(request, "SMS/studentForm.html", context)
     
+def view_course_student_frm(request):
+    if request.method == "GET":
+        frm_unbound = CourseStudentForm() # unbound  = no data
+        context = {
+            'frm': frm_unbound
+        }
+        return render(request, "SMS/courseStudentForm.html", context)
+    elif request.method == "POST":
+        frm_bound = CourseStudentForm(request.POST) # bound form = with data
+        if frm_bound.is_valid():
+            frm_bound.save()
+            resp = HttpResponse("<h1>Course-Student Data Saved Successfully!!</h1>")
+            return resp
+    else:
+        context = {
+            'frm': frm_bound   
+        }
+        return render(request, "SMS/courseStudentForm.html", context)
+    
+
+def viewPaymentDetailsfrm(request):
+    if request.method == "GET":
+        frm_unbound = PaymentDetailsForm() # unbound  = no data
+        context = {
+            'frm': frm_unbound
+        }
+        return render(request, "SMS/paymentDetailsForm.html", context)
+    elif request.method == "POST":
+        frm_bound = PaymentDetailsForm(request.POST) # bound form = with data
+        if frm_bound.is_valid():
+            frm_bound.save()
+            resp = HttpResponse("<h1>Payment Details Saved Successfully!!</h1>")
+            return resp
+    else:
+        context = {
+            'frm': frm_bound   
+        }
+        return render(request, "SMS/paymentDetailsForm.html", context)
