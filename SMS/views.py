@@ -110,3 +110,9 @@ def viewPaymentDetailsfrm(request):
             'frm': frm_bound   
         }
         return render(request, "SMS/paymentDetailsForm.html", context)
+    
+
+
+def view_staticFile_Ex(request):
+    resp = render(request, "SMS/staticFileExample.html")
+    return resp

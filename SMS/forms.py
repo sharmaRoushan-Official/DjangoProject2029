@@ -3,10 +3,17 @@ from django import forms
 
 # student registration form
 class StudentForm(forms.ModelForm):  # model form
-    class Meta: # meta data
-        model = Student # which model to use
-        # fields = ['name','age']
+    class Meta:
+        model = Student 
         fields = '__all__'  # all fields from Student model
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = 'Enter ' + field.label
+            
+
+
 
 # course student form
 class CourseStudentForm(forms.ModelForm):

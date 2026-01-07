@@ -1,0 +1,30 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static File Example</title>
+    <!-- <script src="http://127.0.0.1:8000/static/SMS/js/welcome.js"></script> -->
+
+     <script src="{% static 'SMS/js/welcome.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'SMS/css/prajakta.css' %}">
+</head>
+
+<body>
+    <h1>Static File Example</h1>
+    <!-- <img src="http://127.0.0.1:8000/static/SMS/images/kedarnath.jpg" alt="" height="300px"> -->
+
+     <img src="{% static 'SMS/images/kedarnath.jpg' %}" alt="" height="300px" >
+     <img src="{% static 'SMS/images/shivParvatiJi.jpg' %}" alt="" height="300px">
+     <img src="{% static 'SMS/images/ganesha-picture-UJ47_l.jpg' %}" alt="" height="300px">
+     <img src="{% static 'SMS/images/Kedarnath-Temple.jpg' %}" alt="" height="300px">
+     <img src="{% static 'SMS/images/images.jpg' %}" alt="" height="300px">
+
+    <br>
+    
+    <button onclick="welcome();">Click Me!</button>
+
+</body>
+</html>
