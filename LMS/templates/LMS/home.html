@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body align="center">
+    <h1>**WELCOME TO LMS DASHBOARD**</h1>
+    <hr>
+    <table border="2px solid black" align="center">
+        <tr>
+            <th>PAGE NAME</th>
+            <th>REFERENCES</th>
+        </tr>
+        <tr>
+            <th>HOME</th>
+            <th><a href="{% url 'home' %}">Home Page</a></th>
+        </tr>
+        <tr>
+            <th>USER NAME</th>
+            <th>LINK</th>
+        </tr>
+        <tr>
+            <th>REGISTER</th>
+            <th><a href="{% url 'register' %}">Register</a></th>
+        </tr>
+        <tr>
+            <th>SECURE1</th>
+            <th><a href="{% url 'secure1' %}">Secure1</a></th>
+        </tr>
+        <tr>
+            <th>SECURE2</th>
+            <th><a href="{% url 'secure2' %}">Secure2</a></th>
+        </tr>
+        <tr>
+            <th>UNSECURE1</th>
+            <th><a href="{% url 'unsecure1' %}">Unsecure1</a></th>
+        </tr>
+        <tr>
+            <th>UNSECURE2</th>
+            <th><a href="{% url 'unsecure2' %}">Unsecure2</a></th>
+        </tr>
+        <tr>
+            <th>LOGIN</th>
+            <th>LINK</th>
+        </tr>
+        <tr>
+            <th>LOGOUT</th>
+            <th>LINK</th>
+        </tr>
+
+    </table>
+
+</body>
+</html>
