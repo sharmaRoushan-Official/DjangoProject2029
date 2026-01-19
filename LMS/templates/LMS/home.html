@@ -83,7 +83,7 @@
 
         <tr>
             <th>USER NAME</th>
-            <th>LINK</th>
+            <th>{{ request.user }}</th>
         </tr>
 
         <tr>
@@ -113,12 +113,12 @@
 
         <tr>
             <th>LOGIN</th>
-            <th>LINK</th>
+            <th><a href="{% url 'login' %}">Login</a></th>
         </tr>
 
         <tr>
             <th>LOGOUT</th>
-            <th>LINK</th>
+            <th><a href="{% url 'logout' %}">Logout</a></th>
         </tr>
     </table>
 

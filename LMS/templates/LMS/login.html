@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>User Login</h1>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <table baorder="2px striped black">
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username" required></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password" required></td>
+            </tr>
+        </table>
+        <button type="submit">Login</button>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </form>
+    
+</body>
+</html>
