@@ -76,7 +76,7 @@ def viewCalc(request):
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), # admin route
     path('sum/<int:a>/<int:b>/',viewSum),
     path('sub/<int:a>/<int:b>/',viewSub),
     path('mult/<int:a>/<int:b>/',viewMult),
