@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "EMS", # this is your app name here you registered.
     "SMS", # this is your app name here which you created.SMS
     "LMS", # this is your app anme here which you created,LMS
+    "rest_framework", # this is for rest framework which we installed 
 ]
 
 MIDDLEWARE = [
