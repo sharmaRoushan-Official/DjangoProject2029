@@ -79,6 +79,15 @@ def partial_update_trainer(request, id):
 # partial = True -> allows missing fields 
 # Most used in real projects 
 
+@api_view(http_method_names=['DELETE'])
+def delete_trainer(request,id):
+    triner = Trainer.objects.get(id=id)
+    triner.delete()
+    return Response(status = status.HTTP_204_NO_CONTENT) # HTTP 204 No Content
+
+# Deletes record permanently from the database
+# No data is returned in the response
+
 
     
 
