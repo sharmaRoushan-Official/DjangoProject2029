@@ -4,6 +4,8 @@ from rest_framework.decorators import api_view
 from demoAPI.models import Trainer
 from demoAPI.serializers import TrainerSerializer
 from rest_framework import status
+from demoAPI.serializers import StudentSerializer
+from SMS.models import Student
 
 # Create your views here.
 
@@ -89,5 +91,41 @@ def delete_trainer(request,id):
 # No data is returned in the response
 
 
+@api_view(http_method_names=['GET',"POST","PUT","PATCH","DELETE"])
+def student_list(request,id=None):
+    if request.method == "GET":
+        students = Student.objects.all()
+        serializer = StudentSerializer(students,many=True)
+        return Response(serializer.data)
+    elif request.method == "POST":
+        serializer = StudentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status = status.HTTP_201_CREATED)  # HTTP 201 Created
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)  # HTTP 400 Bad Request
+    elif request.method == "PUT":
+        id = request.data.get("id")
+        student = Student.objects.get(id=id)
+        serializer = StudentSerializer(student,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'PATCH':
+        id = request.data.get("id")
+        student = Student.objects.get(id=id)
+        serializer = StudentSerializer(student,data=request.data,many=False,partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        
+        id = request.data.get("id")
+        student = Student.objects.get(id=id)
+        student.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)
+        
     
 

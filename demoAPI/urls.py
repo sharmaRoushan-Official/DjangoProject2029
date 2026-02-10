@@ -9,4 +9,5 @@ urlpatterns = [
     path('updateTrainer/<int:id>/', update_trainer, name='update-trainer'), # http://127.0.0.1:8000/demoapi/updateTrainer/1/
     path('partialUpdateTrainer/<int:id>/', partial_update_trainer, name='partial-update-trainer'), # http://127.0.0.1:8000/demoapi/partialUpdateTrainer/1/
     path('deleteTrainer/<int:id>/', delete_trainer, name='delete-trainer'), # http://127.0.0.1:8000/demoapi/deleteTrainer/1/
+    path('students/', student_list, name='student-list'), # http://127.0.0.1:8000/demoapi/students/
 ]
